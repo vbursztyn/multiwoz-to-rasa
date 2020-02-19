@@ -1,0 +1,41 @@
+slots:
+  name:
+    type: text
+  people:
+    type: text
+  price:
+    type: text
+  day:
+    type: text
+  food:
+    type: text
+  time:
+    type: text
+  area:
+    type: text
+
+entities:
+- name
+- people
+- price
+- day
+- food
+- time
+- area
+
+intents:
+ - restaurant-inform
+ - restaurant-request
+ - general-thank
+ - general-bye
+
+actions:
+- utter_std
+
+responses:
+  utter_std:
+  - text: "Standard bot action."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

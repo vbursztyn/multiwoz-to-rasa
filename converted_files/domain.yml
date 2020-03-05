@@ -1,0 +1,186 @@
+slots:
+  type:
+    type: text
+  price:
+    type: text
+  stay:
+    type: text
+  day:
+    type: text
+  people:
+    type: text
+  area:
+    type: text
+  stars:
+    type: text
+  dest:
+    type: text
+  depart:
+    type: text
+  arrive:
+    type: text
+  leave:
+    type: text
+  food:
+    type: text
+  name:
+    type: text
+  department:
+    type: text
+  time:
+    type: text
+  phone:
+    type: text
+  post:
+    type: text
+  addr:
+    type: text
+
+entities:
+- type
+- price
+- stay
+- day
+- people
+- area
+- stars
+- dest
+- depart
+- arrive
+- leave
+- food
+- name
+- department
+- time
+- phone
+- post
+- addr
+
+intents:
+ - hotel-inform
+ - general-bye
+ - police-inform
+ - police-request
+ - general-thank
+ - hotel-request
+ - train-inform
+ - train-request
+ - taxi-inform
+ - attraction-inform
+ - attraction-request
+ - restaurant-inform
+ - restaurant-request
+ - hospital-inform
+ - hospital-request
+ - general-greet
+ - taxi-request
+
+actions:
+- hotel-request
+- booking-inform
+- hotel-inform
+- booking-nobook
+- booking-request
+- general-reqmore
+- booking-book
+- general-bye
+- police-inform
+- general-welcome
+- hotel-recommend
+- train-inform
+- train-request
+- train-offerbook
+- train-offerbooked
+- taxi-request
+- taxi-inform
+- general-greet
+- train-nooffer
+- attraction-request
+- attraction-inform
+- attraction-recommend
+- restaurant-request
+- restaurant-nooffer
+- restaurant-inform
+- hospital-request
+- hospital-inform
+- hotel-select
+- attraction-select
+- restaurant-select
+- restaurant-recommend
+- hotel-nooffer
+- train-select
+- attraction-nooffer
+
+responses:
+  hotel-request:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  booking-inform:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  hotel-inform:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  booking-nobook:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  booking-request:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  general-reqmore:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  booking-book:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  general-bye:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  police-inform:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  general-welcome:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  hotel-recommend:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  train-inform:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  train-request:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  train-offerbook:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  train-offerbooked:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  taxi-request:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  taxi-inform:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  general-greet:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  train-nooffer:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  attraction-request:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  attraction-inform:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  attraction-recommend:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  restaurant-request:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  restaurant-nooffer:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  restaurant-inform:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  hospital-request:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  hospital-inform:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  hotel-select:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  attraction-select:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  restaurant-select:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  restaurant-recommend:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  hotel-nooffer:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  train-select:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  attraction-nooffer:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

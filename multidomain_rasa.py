@@ -6,7 +6,7 @@ MultiWOZ to Rasa
 import json
 import string
 import nltk
-import os
+import codecs
 
 def loadDomainStories(readFile):
     with open(readFile, 'r') as f_in:
@@ -32,7 +32,7 @@ def generateRasaDomain(domainStories, writeFile):
     buildRasaDomain(entities, intents, actions, writeFile)
 
 def buildRasaDomain(entities, intents, actions, writeFile):
-    with open(writeFile, 'w') as f_out:
+    with codecs.open(writeFile, 'w', 'utf-8') as f_out:
         f_out.write('slots:\n')
         for entity in entities:
             f_out.write('  ' + entity + ':\n')
@@ -99,7 +99,7 @@ def intentsFromTurn(turn):
     return intents
 
 def generateRasaStories(domainStories, writeFile):
-    with open(writeFile, 'w') as f_out:
+    with codecs.open(writeFile, 'w', 'utf-8') as f_out:
         for i, story in enumerate(domainStories):
             f_out.write('## path nr %s\n' %i)
             intents = constructRasaStory(story)
@@ -126,7 +126,7 @@ def constructRasaStory(story):
 def generateUtterances(domainStories, writeFile):
     utterancesByIntent = getAllUtterances(domainStories)
     
-    with open(writeFile, 'w') as f_out:
+    with codecs.open(writeFile, 'w', 'utf-8') as f_out:
         for intent in utterancesByIntent:
             f_out.write('## intent:%s\n' %intent.lower())
             for utter in utterancesByIntent[intent]:
@@ -188,10 +188,11 @@ def annotate_utterance(utter, spans):
     return fixed_markers.translate(str.maketrans('', '', fixed_punctuation)).replace(' ]',']').replace('  ',' ')
     
 def main():
-    readFile = 'data.json'
-    rasaStoriesFile = 'stories.txt'
-    rasaDomainFile = 'domain.txt'
-    rasaUtterancesFile = 'nlu.txt'
+    readFile = 'data/data.json'
+    rasaStoriesFile = 'converted_files/data/stories.md'
+    rasaUtterancesFile = 'converted_files/data/nlu.md'
+    rasaDomainFile = 'converted_files/domain.yml'
+
     
     print('Reading file...\n')
     domainStories = loadDomainStories(readFile)

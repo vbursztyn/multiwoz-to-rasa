@@ -115,14 +115,30 @@ def constructRasaStory(story):
         for turn in story['log']:
             try:
                 for intent in list(turn['dialog_act'].keys()):
+                    constructed_intent = ""
                     if not turn['metadata']:
-                        intents.append(" * " + intent.lower())
+                        constructed_intent = " * "
                     else:
-                        intents.append("  - " + intent.lower())
+                        constructed_intent = "  - "
+                    constructed_intent = constructed_intent + intent.lower()
+                    
+                    if 'Inform' in intent:
+                        informList = constructInformList(turn['dialog_act'][intent])
+                        constructed_intent = constructed_intent + informList
+                    
+                    intents.append(constructed_intent)
             except:
                 pass
         return intents
 
+def constructInformList(intent):
+    slots = []
+    for slot in intent:
+        slots.append("\"" + slot[0].lower() + ": " + slot[1].lower() + "\"")
+        # print(slots)
+    joinedString = '{' + ', '.join(slot for slot in slots) + '}'
+    return joinedString
+    
 def generateUtterances(domainStories, writeFile):
     utterancesByIntent = getAllUtterances(domainStories)
     

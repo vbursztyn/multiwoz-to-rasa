@@ -60,59 +60,112 @@ intents:
  - hotel-inform
  - general-bye
  - police-inform
- - police-request
+ - police-request-post
+ - police-request-addr
  - general-thank
- - hotel-request
+ - hotel-request-ref
  - train-inform
- - train-request
+ - train-request-leave
+ - train-request-time
+ - train-request-ticket
  - taxi-inform
+ - police-request-phone
+ - hotel-request-addr
+ - train-request-arrive
  - attraction-inform
- - attraction-request
+ - attraction-request-addr
  - restaurant-inform
- - restaurant-request
+ - attraction-request-type
+ - restaurant-request-phone
+ - restaurant-request-post
+ - restaurant-request-addr
  - hospital-inform
- - hospital-request
+ - hospital-request-phone
+ - attraction-request-post
+ - attraction-request-phone
+ - hospital-request-addr
+ - hospital-request-post
+ - hotel-request-internet
+ - hotel-request-post
+ - attraction-request-fee
+ - restaurant-request-price
  - general-greet
- - taxi-request
+ - train-request-ref
+ - hotel-request-phone
+ - hotel-request-parking
+ - restaurant-request-ref
+ - hotel-request-price
+ - restaurant-request-food
+ - train-request-id
+ - taxi-request-phone
+ - taxi-request-car
+ - attraction-request-area
+ - hotel-request-area
+ - hotel-request-stars
+ - hotel-request-type
+ - restaurant-request-area
 
 actions:
-- hotel-request
+- hotel-request-area
 - booking-inform
 - hotel-inform
 - booking-nobook
-- booking-request
+- booking-request-stay
+- booking-request-day
 - general-reqmore
 - booking-book
 - general-bye
 - police-inform
 - general-welcome
+- hotel-request-price
 - hotel-recommend
 - train-inform
-- train-request
+- train-request-leave
 - train-offerbook
 - train-offerbooked
-- taxi-request
+- train-request-depart
+- train-request-day
+- taxi-request-leave
+- taxi-request-arrive
 - taxi-inform
 - general-greet
+- train-request-dest
+- train-request-arrive
 - train-nooffer
-- attraction-request
+- hotel-request-internet
+- hotel-request-parking
+- attraction-request-area
+- attraction-request-type
 - attraction-inform
 - attraction-recommend
-- restaurant-request
+- restaurant-request-food
+- restaurant-request-area
 - restaurant-nooffer
 - restaurant-inform
-- hospital-request
+- hospital-request-department
 - hospital-inform
+- train-request-people
+- booking-request-people
+- hotel-request-stars
+- hotel-request-type
 - hotel-select
 - attraction-select
+- restaurant-request-price
 - restaurant-select
 - restaurant-recommend
+- booking-request-time
 - hotel-nooffer
 - train-select
+- attraction-request-price
+- taxi-request-depart
+- restaurant-request-name
 - attraction-nooffer
+- taxi-request-dest
+- attraction-request-name
+- hotel-request-name
 
 responses:
-  hotel-request:
+  hotel-request-area:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   booking-inform:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
@@ -120,7 +173,9 @@ responses:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   booking-nobook:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
-  booking-request:
+  booking-request-stay:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  booking-request-day:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   general-reqmore:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
@@ -132,53 +187,97 @@ responses:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   general-welcome:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  hotel-request-price:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   hotel-recommend:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   train-inform:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
-  train-request:
+  train-request-leave:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   train-offerbook:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   train-offerbooked:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
-  taxi-request:
+  train-request-depart:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  train-request-day:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  taxi-request-leave:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  taxi-request-arrive:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   taxi-inform:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   general-greet:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  train-request-dest:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  train-request-arrive:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   train-nooffer:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
-  attraction-request:
+  hotel-request-internet:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  hotel-request-parking:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  attraction-request-area:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  attraction-request-type:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   attraction-inform:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   attraction-recommend:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
-  restaurant-request:
+  restaurant-request-food:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  restaurant-request-area:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   restaurant-nooffer:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   restaurant-inform:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
-  hospital-request:
+  hospital-request-department:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   hospital-inform:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  train-request-people:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  booking-request-people:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  hotel-request-stars:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  hotel-request-type:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   hotel-select:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   attraction-select:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  restaurant-request-price:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   restaurant-select:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   restaurant-recommend:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  booking-request-time:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   hotel-nooffer:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   train-select:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  attraction-request-price:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  taxi-request-depart:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  restaurant-request-name:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
   attraction-nooffer:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  taxi-request-dest:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  attraction-request-name:
+  - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
+  hotel-request-name:
   - text: "TEMP: NEED TO FIGURE OUT RESPONSES."
 
 session_config:

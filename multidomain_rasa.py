@@ -50,7 +50,9 @@ def buildRasaDomain(entities, intents, actions, writeFile):
         for action in actions:
             f_out.write('  ' + action + ':\n' + '  - text: \"TEMP: NEED TO FIGURE OUT RESPONSES.\"\n')
         f_out.write('\n' + 'session_config:\n  session_expiration_time: 60\n  carry_over_slots_to_new_session: true')
-            
+    
+
+        
 
 def getAllActions(domainStories):
     actionsList = []
@@ -93,10 +95,17 @@ def intentsFromTurn(turn):
     intents = []
     try:
         for intent in list(turn['dialog_act'].keys()):
-            intents.append(intent.lower())
+            if 'Request' in intent:
+                requestList = constructRequestList(turn['dialog_act'][intent])
+                for request in requestList:
+                    intents.append(intent.lower() + '-' + request)
+            else: 
+                intents.append(intent.lower())
     except:
         pass
     return intents
+
+
 
 def generateRasaStories(domainStories, writeFile):
     with codecs.open(writeFile, 'w', 'utf-8') as f_out:
@@ -122,6 +131,12 @@ def constructRasaStory(story):
                         constructed_intent = "  - "
                     constructed_intent = constructed_intent + intent.lower()
                     
+                    if 'Request' in intent:
+                        requestList = constructRequestList(turn['dialog_act'][intent])
+                        for request in requestList:
+                            intents.append(constructed_intent + '-' + request)
+                        continue
+                        
                     if 'Inform' in intent:
                         informList = constructInformList(turn['dialog_act'][intent])
                         constructed_intent = constructed_intent + informList
@@ -130,6 +145,12 @@ def constructRasaStory(story):
             except:
                 pass
         return intents
+
+def constructRequestList(intent):
+    requests = []
+    for request in intent:
+        requests.append(request[0].lower())
+    return requests
 
 def constructInformList(intent):
     slots = []

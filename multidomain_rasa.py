@@ -124,24 +124,25 @@ def constructRasaStory(story):
         for turn in story['log']:
             try:
                 for intent in list(turn['dialog_act'].keys()):
-                    constructed_intent = ""
+                    core = intent.lower()
+                    info = ""
+                    
                     if not turn['metadata']:
-                        constructed_intent = " * "
+                        prefix = " * "
+                        if 'Inform' in intent:
+                            info = constructInformList(turn['dialog_act'][intent])
                     else:
-                        constructed_intent = "  - "
-                    constructed_intent = constructed_intent + intent.lower()
+                        prefix = "  - "
                     
                     if 'Request' in intent:
-                        requestList = constructRequestList(turn['dialog_act'][intent])
-                        for request in requestList:
-                            intents.append(constructed_intent + '-' + request)
-                        continue
-                        
-                    if 'Inform' in intent:
-                        informList = constructInformList(turn['dialog_act'][intent])
-                        constructed_intent = constructed_intent + informList
-                    
-                    intents.append(constructed_intent)
+                        reqlist = constructRequestList(turn['dialog_act'][intent])
+                        for req in reqlist:
+                            fullTurn = prefix + core + '-' + req
+                            intents.append(fullTurn)
+                            continue
+                    else:
+                        fullTurn = prefix + core + info
+                        intents.append(fullTurn)
             except:
                 pass
         return intents
@@ -153,12 +154,11 @@ def constructRequestList(intent):
     return requests
 
 def constructInformList(intent):
-    slots = []
+    slots = {}
     for slot in intent:
-        slots.append("\"" + slot[0].lower() + ": " + slot[1].lower() + "\"")
+        slots[slot[0].lower()] = slot[1].lower()
         # print(slots)
-    joinedString = '{' + ', '.join(slot for slot in slots) + '}'
-    return joinedString
+    return slots.__str__()
     
 def generateUtterances(domainStories, writeFile):
     utterancesByIntent = getAllUtterances(domainStories)

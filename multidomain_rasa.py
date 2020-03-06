@@ -156,7 +156,7 @@ def constructRequestList(intent):
 def constructInformList(intent):
     slots = []
     for slot in intent:
-        slots.append("\"" + slot[0].lower() + ": " + slot[1].lower() + "\"")
+        slots.append("\"" + slot[0].lower() + "\": \"" + slot[1].lower() + "\"")
         # print(slots)
     joinedString = '{' + ', '.join(slot for slot in slots) + '}'
     return joinedString

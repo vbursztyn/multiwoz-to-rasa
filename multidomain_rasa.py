@@ -154,11 +154,12 @@ def constructRequestList(intent):
     return requests
 
 def constructInformList(intent):
-    slots = {}
+    slots = []
     for slot in intent:
-        slots[slot[0].lower()] = slot[1].lower()
+        slots.append("\"" + slot[0].lower() + ": " + slot[1].lower() + "\"")
         # print(slots)
-    return slots.__str__()
+    joinedString = '{' + ', '.join(slot for slot in slots) + '}'
+    return joinedString
     
 def generateUtterances(domainStories, writeFile):
     utterancesByIntent = getAllUtterances(domainStories)

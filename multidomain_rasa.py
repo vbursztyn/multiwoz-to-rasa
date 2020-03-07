@@ -45,14 +45,14 @@ def buildRasaDomain(entities, intents, actions, writeFile):
             f_out.write(' - ' + intent + '\n')
         f_out.write('\n' + 'actions:\n')
         for action in actions:
-            f_out.write('- ' + action + '\n')
+            if "inform" in action or "recommend" in action or "select" in action:
+                f_out.write('- action_' + action + '\n')
         f_out.write('\n' + 'responses:\n')
         for action in actions:
-            f_out.write('  ' + action + ':\n' + '  - text: \"TEMP: NEED TO FIGURE OUT RESPONSES.\"\n')
+            if "inform" not in action and "recommend" not in action and "select" not in action:
+                f_out.write('  utter_' + action + ':\n' + '  - text: \"TEMP: NEED TO FIGURE OUT RESPONSES.\"\n')
         f_out.write('\n' + 'session_config:\n  session_expiration_time: 60\n  carry_over_slots_to_new_session: true')
     
-
-        
 
 def getAllActions(domainStories):
     actionsList = []
@@ -132,7 +132,10 @@ def constructRasaStory(story):
                         if 'Inform' in intent:
                             info = constructInformList(turn['dialog_act'][intent])
                     else:
-                        prefix = "  - "
+                        if "inform" in intent.lower() or "recommend" in intent.lower() or "select" in intent.lower():
+                            prefix = "  - action_"
+                        else:
+                            prefix = "  - utter_"
                     
                     if 'Request' in intent:
                         reqlist = constructRequestList(turn['dialog_act'][intent])

@@ -7,11 +7,11 @@ Our goal is to apply Rasa to new task-oriented domains. We do that by resorting 
 
 ## Deliverables.
 The deliverables for our project are as follows:
-1. An ETL process that converts raw data from MultiWOZ to a format that is fully adherent to Rasa. [View]
-2. A docker image containing a pretrained fully functional single-domain application: a restaurant booking bot that spans Rasa NLU, Rasa Core, and effectively return query results through our implementation of Rasa Actions. [View]
-3. A pretrained model spanning all data from MultiWOZ, deployed with Rasa X. [View]
-4. Configuration files deploying the built-in "restaurantbot" (not our version from MultiWOZ) to Facebook Messenger. [View demo video]
-5. Configuration files and source code deploying our custom restaurant bot to Google Assistant as a Google Skill. [View demo video]
+1. An ETL process that converts raw data from MultiWOZ to a format that is fully adherent to Rasa.
+2. A docker image containing a pretrained fully functional single-domain application: a restaurant booking bot that spans Rasa NLU, Rasa Core, and effectively return query results through our implementation of Rasa Actions.
+3. A pretrained model spanning all data from MultiWOZ, deployed with Rasa X.
+4. Configuration files deploying the built-in "restaurantbot" (not our version from MultiWOZ) to Facebook Messenger.
+5. Configuration files and source code deploying our custom restaurant bot to Google Assistant as a Google Skill.
 
 Deliverables #4 and #5 require custom steps for network configuration, ranging from network funneling through ngrok to the adherence to platform-specific requirements and standards (e.g., providing a custom "data privacy policy" in the case of Facebook or registering custom utterances to call a skill in Google Assistant).
 

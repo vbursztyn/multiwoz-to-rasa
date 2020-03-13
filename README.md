@@ -2,7 +2,7 @@
 ## Problem statement.
 Domain-specific chatbot deployments have risen as companies and other service providers have shifted towards AI systems for customer interaction in order to save money and human resources. This has created a need for targeted and domain-specific chatbots that can be trained and deployed through a framework that is easily accessible and deployable in a variety of contexts. Rasa is a framework for building domain-specific chatbots by means of two interconnected ML-based modules:
 1. Rasa NLU, which takes in utterances to (i) classify user intent, (ii) extract associated entities, and (iii) uses said entities to fill intent-related slots; and
-2. Rasa Core, which atkes in the last states of a conversation to predict the most likely next dialogue step.
+2. Rasa Core, which takes in the last states of a conversation to predict the most likely next dialogue step.
 Our goal is to apply Rasa to new task-oriented domains. We do that by resorting to MultiWoZ, a recently published data set that contains both single- and multi-domain stories.
 
 ## Deliverables.

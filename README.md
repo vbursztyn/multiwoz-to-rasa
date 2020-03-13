@@ -1,12 +1,73 @@
-## CS 496 - Statistical Learning
-## Integrating MultiWoz 2.1 to Rasa.ai
+# CS 496 - Rasa Deployments
+## Problem statement.
+Domain-specific chatbot deployments have risen as companies and other service providers have shifted towards AI systems for customer interaction in order to save money and human resources. This has created a need for targeted and domain-specific chatbots that can be trained and deployed through a framework that is easily accessible and deployable in a variety of contexts. Rasa is a framework for building domain-specific chatbots by means of two interconnected ML-based modules:
+1. Rasa NLU, which takes in utterances to (i) classify user intent, (ii) extract associated entities, and (iii) uses said entities to fill intent-related slots; and
+2. Rasa Core, which atkes in the last states of a conversation to predict the most likely next dialogue step.
+Our goal is to apply Rasa to new task-oriented domains. We do that by resorting to MultiWoZ, a recently published data set that contains both single- and multi-domain stories.
 
-#### Steps:
-1. Unzip data.zip
-2. Run `pip install -r requirements.txt`
-3. Run `jupyter notebook`
-4. Notebook `parse_restaurant_domain.ipynb` takes in data.json, selects stories from the restaurants domain, and transforms these stories to the format of Rasa's annotated utterances.
-5. TO-DO: Now that the restaurants domain is fully covered (we're generating both nlu.md and stories.md), scale this ETL process to the entire MultiWoZ 2.1 dataset, including the stories that span multiple domains.
+## Deliverables.
+The deliverables for our project are as follows:
+1. An ETL process that converts raw data from MultiWOZ to a format that is fully adherent to Rasa. [View]
+2. A docker image containing a pretrained fully functional single-domain application: a restaurant booking bot that spans Rasa NLU, Rasa Core, and effectively return query results through our implementation of Rasa Actions. [View]
+3. A pretrained model spanning all data from MultiWOZ, deployed with Rasa X. [View]
+4. Configuration files deploying the built-in "restaurantbot" (not our version from MultiWOZ) to Facebook Messenger. [View demo video]
+5. Configuration files and source code deploying our custom restaurant bot to Google Assistant as a Google Skill. [View demo video]
 
-------
-Current authors: v-bursztyn@u.northwestern.edu
+Deliverables #4 and #5 require custom steps for network configuration, ranging from network funneling through ngrok to the adherence to platform-specific requirements and standards (e.g., providing a custom "data privacy policy" in the case of Facebook or registering custom utterances to call a skill in Google Assistant).
+
+## Set-up steps.
+
+Requirements: Python 3.6, Tensorflow 2.1.0
+
+1. Clone and set up this repository.
+```
+git clone https://github.com/vbursztyn/multiwoz-to-rasa.git
+cd multiwoz-to-rasa
+```
+
+2. Install Rasa X, as well as the listed requirements in `requirements.txt `.
+```
+pip install rasa-x -i https://pypi.rasa.com/simple
+pip install -r requirements.txt
+```
+
+You should now be able to replicate the processes for each of the mentioned deliverables.
+
+## 1: ETL pipeline.
+
+Steps to replicate:
+
+1. Enter the corresponding folder in the repository.
+
+```
+cd etl-pipeline
+```
+
+2. Unzip the folder `data.zip`.
+
+3. Run the python script `multidomain_rasa.py`.
+
+The script takes in data.json, a copy of the MultiWOZ dataset, and transforms all stories in the dataset to the format of Rasa's annotated utterances. It also generates a `domain.yml` file that contains a list of all possible actions, entities and intents that can be detected and/or performed by the chatbot. It dumps all of this information into the folder `converted_files`.
+
+## 2: Docker image.
+
+
+
+## 3: Rasa X pre-trained model.
+
+Steps to replicate:
+
+1. Enter the corresponding directory.
+
+```
+cd rasa-x-deployment
+```
+
+2. Unzip folder `model.zip`, and extract the `tar.gz` file into the subdirectory `rasa-x-deployment/models`.
+
+3. Start Rasa X with the command `rasa x`.
+
+## 4: Facebook messenger restaurantbot deployment.
+
+
+## 5: Restaurant bot Google Assistant deployment.

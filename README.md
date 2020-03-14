@@ -1,4 +1,7 @@
 # CS 496 - Rasa Deployments
+
+Group: Victor Bursztyn and Vikram Kohli. Corresponding author: v-bursztyn@u.northwestern.edu
+
 ## Problem statement.
 Domain-specific chatbot deployments have risen as companies and other service providers have shifted towards AI systems for customer interaction in order to save money and human resources. This has created a need for targeted and domain-specific chatbots that can be trained and deployed through a framework that is easily accessible and deployable in a variety of contexts. Rasa (Bocklisch et al., 2017) is a framework for building domain-specific chatbots by means of two interconnected ML-based modules:
 1. Rasa NLU, which takes in utterances to (i) classify user intent, (ii) extract associated entities, and (iii) uses said entities to fill intent-related slots; and
@@ -76,12 +79,12 @@ cd google-assistant
 1. From the root directory, run:
 
 ```
-docker run -it -v $(pwd):/google-assistant rasa/rasa shell --name rasa-container
+docker run -it --name rasa-container -v $(pwd)/google-assistant:/app rasa/rasa:1.6.1-full shell
 ```
 
 Which performs steps #1, #2, and #4 above (see subsection "without a container") but taking advantage of a fully functional image.
 
-2. Enter a new bash:
+2. With the interactive shell running, open a separate terminal and enter container's bash:
 
 ```
 docker exec -it rasa-container bash
@@ -108,9 +111,17 @@ cd rasa-x-deployment
 
 [![FB messenger demo](https://j.gifs.com/XL0gVo.gif)](https://www.youtube.com/watch?v=35YqSL8Oimg)
 
+All deployable files are included and may be considered helper files in the event of a new deployment. However, connecting to Facebook is entirely based on custom configuration, which can't be automated. The steps to replicate are fully and concisely documented [here](https://rasa.com/docs/rasa/user-guide/connectors/facebook-messenger/).
+
+Please contact group member Victor Bursztyn at v-bursztyn@u.northwestern.edu in case you would like to schedule a session with our original live demo.
+
 ## 5: Restaurant bot Google Assistant deployment.
 
 [![Google Assistant demo](https://j.gifs.com/Mw2RWR.gif)](https://www.youtube.com/watch?v=niHGCLBaflc)
+
+All deployable files are included and may be considered helper files in the event of a new deployment. However, deploying a chatbot to Google Assistant as a new skill requires custom configuration throughout, and similarly to Facebook Messenger this can't be automated. The steps to replicate are fully documented [here](https://blog.rasa.com/going-beyond-hey-google-building-a-rasa-powered-google-assistant/).
+
+Please contact group member Victor Bursztyn at v-bursztyn@u.northwestern.edu in case you would like to schedule a session with our original live demo.
 
 ## References
 * Bocklisch, T., Faulkner, J., Pawlowski, N., & Nichol, A. (2017). Rasa: Open source language understanding and dialogue management. arXiv preprint arXiv:1712.05181.

@@ -5,13 +5,16 @@ Domain-specific chatbot deployments have risen as companies and other service pr
 2. Rasa Core, which takes in the last states of a conversation to predict the most likely next dialogue step.
 Our goal is to apply Rasa to new task-oriented domains. We do that by resorting to MultiWOZ (Eric et al., 2019), a recently published data set that contains both single- and multi-domain stories.
 
+I/O for most deliverables:
+Input - two training set files; (1) NLU file, which maps a variety of utterances to particular intents, and (2) Stories file, which contains a multitude of different "stories", sequences of turns of events between a user and chatbot.
+Output - a conversational assistant capable of, for a particular domain, discerning the intent and entities from a user statement and performing dialogue management/responding in turn.
+
 ## Deliverables.
 The deliverables for our project are as follows:
 1. An ETL process that converts raw data from MultiWOZ to a format that is fully adherent to Rasa.
-2. A docker image containing a pretrained fully functional single-domain application: a restaurant booking bot that spans Rasa NLU, Rasa Core, and effectively return query results through our implementation of Rasa Actions.
-3. A pretrained model spanning all data from MultiWOZ, deployed with Rasa X.
-4. Configuration files deploying the built-in "restaurantbot" (not our version from MultiWOZ) to Facebook Messenger.
-5. Configuration files and source code deploying our custom restaurant bot to Google Assistant as a Google Skill.
+2. A pretrained model spanning all data from MultiWOZ, deployed with Rasa X.
+3. Configuration files deploying the built-in "restaurantbot" (not our version from MultiWOZ) to Facebook Messenger.
+4. Configuration files and source code deploying our custom restaurant bot to Google Assistant as a Google Skill.
 
 Deliverables #4 and #5 require custom steps for network configuration, ranging from network funneling through ngrok to the adherence to platform-specific requirements and standards (e.g., providing a custom "data privacy policy" in the case of Facebook or registering custom utterances to call a skill in Google Assistant).
 
@@ -49,11 +52,7 @@ cd etl-pipeline
 
 The script takes in data.json, a copy of the MultiWOZ dataset, and transforms all stories in the dataset to the format of Rasa's annotated utterances. It also generates a `domain.yml` file that contains a list of all possible actions, entities and intents that can be detected and/or performed by the chatbot. It dumps all of this information into the folder `converted_files`.
 
-## 2: Docker image.
-
-
-
-## 3: Rasa X pre-trained model.
+## 2: Rasa X pre-trained model.
 
 Steps to replicate:
 
@@ -67,11 +66,11 @@ cd rasa-x-deployment
 
 3. Start Rasa X with the command `rasa x`.
 
-## 4: Facebook messenger restaurantbot deployment.
+## 3: Facebook messenger restaurantbot deployment.
 
 [![FB messenger demo](https://j.gifs.com/XL0gVo.gif)](https://www.youtube.com/watch?v=35YqSL8Oimg)
 
-## 5: Restaurant bot Google Assistant deployment.
+## 4: Restaurant bot Google Assistant deployment.
 
 [![Google Assistant demo](https://j.gifs.com/Mw2RWR.gif)](https://www.youtube.com/watch?v=niHGCLBaflc)
 

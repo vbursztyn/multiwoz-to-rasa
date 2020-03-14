@@ -8,7 +8,7 @@ Our goal is to apply Rasa to new task-oriented domains. We do that by resorting 
 ## Deliverables.
 The deliverables for our project are as follows:
 1. An ETL process that converts raw data from MultiWOZ to a format that is fully adherent to Rasa.
-2. A docker image containing a pretrained fully functional single-domain application: a restaurant booking bot that spans Rasa NLU, Rasa Core, and effectively return query results through our implementation of Rasa Actions.
+2. A pretrained fully functional single-domain application: a restaurant booking bot that spans Rasa NLU, Rasa Core, and effectively returns query results through our implementation of Rasa Actions.
 3. A pretrained model spanning all data from MultiWOZ, deployed with Rasa X.
 4. Configuration files deploying the built-in "restaurantbot" (not our version from MultiWOZ) to Facebook Messenger.
 5. Configuration files and source code deploying our custom restaurant bot to Google Assistant as a Google Skill.
@@ -33,7 +33,7 @@ pip install -r requirements.txt
 
 You should now be able to replicate the processes for each of the mentioned deliverables.
 
-## 1: ETL pipeline.
+## 1: ETL pipeline from MultiWOZ to Rasa's input formats.
 
 Steps to replicate:
 
@@ -47,10 +47,43 @@ cd etl-pipeline
 
 3. Run the python script `multidomain_rasa.py`.
 
-The script takes in data.json, a copy of the MultiWOZ dataset, and transforms all stories in the dataset to the format of Rasa's annotated utterances. It also generates a `domain.yml` file that contains a list of all possible actions, entities and intents that can be detected and/or performed by the chatbot. It dumps all of this information into the folder `converted_files`.
+The script takes in data.json, a copy of the MultiWOZ dataset, and transforms all stories in the dataset to the format of Rasa's annotated utterances (refer to `nlu.md` for annotated utterances and `stories.md` for structured user stories). It also generates a `domain.yml` file that contains a list of all possible actions, entities and intents that can be detected and/or performed by the chatbot. It dumps all of this information into the folder `converted_files`.
 
-## 2: Docker image.
+## 2: Fully functional chatbot trained over MultiWOZ.
 
+Our custom restaurant bot can be easily executed either with or without a Docker container.
+
+### Without a container:
+
+1. Make sure the requirements have been installed (most importantly, `pip install rasa`).
+
+2. Enter the Google Assistant folder, in which also lies our custom restaurant bot.
+
+```
+cd google-assistant
+```
+
+3. In a separate terminal, run our actions server through Rasa: `rasa run actions` (this will serve our bot's actions whenever the conversation policy predicts so, prompting the chatbot to call them)
+
+4. Then also run `rasa shell` to start interacting with the actual chatbot.
+
+### With a container:
+
+1. From the root directory, run:
+
+```
+docker run -it -v $(pwd):/google-assistant rasa/rasa shell --name rasa-container
+```
+
+Which performs steps #1, #2, and #4 above (see subsection "without a container") but taking advantage of a fully functional image.
+
+2. Enter a new bash:
+
+```
+docker exec -it rasa-container bash
+```
+
+And perform step #3, that is, start our action server from the application folder: `rasa run actions`
 
 
 ## 3: Rasa X pre-trained model.

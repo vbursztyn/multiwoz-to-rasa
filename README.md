@@ -69,9 +69,11 @@ cd rasa-x-deployment
 
 ## 4: Facebook messenger restaurantbot deployment.
 
+[![FB messenger demo](https://j.gifs.com/XL0gVo.gif)](https://www.youtube.com/watch?v=35YqSL8Oimg)
 
 ## 5: Restaurant bot Google Assistant deployment.
 
+[![Google Assistant demo](https://j.gifs.com/Mw2RWR.gif)](https://www.youtube.com/watch?v=niHGCLBaflc)
 
 ## References
 * Bocklisch, T., Faulkner, J., Pawlowski, N., & Nichol, A. (2017). Rasa: Open source language understanding and dialogue management. arXiv preprint arXiv:1712.05181.

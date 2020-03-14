@@ -96,6 +96,8 @@ And perform step #3, that is, start our action server from the application folde
 
 To test only the NLU module, run `rasa shell nlu`:
 
+![Rasa NLU](https://github.com/vbursztyn/multiwoz-to-rasa/blob/master/rasa_nlu.png)
+
 ## 3: Rasa X pre-trained model.
 
 Steps to replicate:

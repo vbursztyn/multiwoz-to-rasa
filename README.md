@@ -92,6 +92,9 @@ docker exec -it rasa-container bash
 
 And perform step #3, that is, start our action server from the application folder: `rasa run actions`
 
+---
+
+To test only the NLU module, run `rasa shell nlu`:
 
 ## 3: Rasa X pre-trained model.
 

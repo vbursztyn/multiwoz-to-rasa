@@ -5,6 +5,10 @@ Domain-specific chatbot deployments have risen as companies and other service pr
 2. Rasa Core, which takes in the last states of a conversation to predict the most likely next dialogue step.
 Our goal is to apply Rasa to new task-oriented domains. We do that by resorting to MultiWOZ (Eric et al., 2019), a recently published data set that contains both single- and multi-domain stories.
 
+I/O for most deliverables:
+Input - two training set files; (1) NLU file, which maps a variety of utterances to particular intents, and (2) Stories file, which contains a multitude of different "stories", sequences of turns of events between a user and chatbot.
+Output - a conversational assistant capable of, for a particular domain, discerning the intent and entities from a user statement and performing dialogue management/responding in turn.
+
 ## Deliverables.
 The deliverables for our project are as follows:
 1. An ETL process that converts raw data from MultiWOZ to a format that is fully adherent to Rasa.

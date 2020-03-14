@@ -11,6 +11,7 @@ Our goal is to apply Rasa to new task-oriented domains. We do that by resorting 
 I/O for most deliverables:
 Input - two training set files; (1) NLU file, which maps a variety of utterances to particular intents, and (2) Stories file, which contains a multitude of different "stories", sequences of turns of events between a user and chatbot.
 Output - a conversational assistant capable of, for a particular domain, discerning the intent and entities from a user statement and performing dialogue management/responding in turn.
+Training - `rasa train` can always be used in a chatbot folder to (re)train its models if input data under the `data` subfolder changes.
 
 ## Deliverables.
 The deliverables for our project are as follows:

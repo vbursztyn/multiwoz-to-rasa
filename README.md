@@ -1,9 +1,9 @@
 # CS 496 - Rasa Deployments
 ## Problem statement.
-Domain-specific chatbot deployments have risen as companies and other service providers have shifted towards AI systems for customer interaction in order to save money and human resources. This has created a need for targeted and domain-specific chatbots that can be trained and deployed through a framework that is easily accessible and deployable in a variety of contexts. Rasa is a framework for building domain-specific chatbots by means of two interconnected ML-based modules:
+Domain-specific chatbot deployments have risen as companies and other service providers have shifted towards AI systems for customer interaction in order to save money and human resources. This has created a need for targeted and domain-specific chatbots that can be trained and deployed through a framework that is easily accessible and deployable in a variety of contexts. Rasa (Bocklisch et al., 2017) is a framework for building domain-specific chatbots by means of two interconnected ML-based modules:
 1. Rasa NLU, which takes in utterances to (i) classify user intent, (ii) extract associated entities, and (iii) uses said entities to fill intent-related slots; and
 2. Rasa Core, which takes in the last states of a conversation to predict the most likely next dialogue step.
-Our goal is to apply Rasa to new task-oriented domains. We do that by resorting to MultiWoZ, a recently published data set that contains both single- and multi-domain stories.
+Our goal is to apply Rasa to new task-oriented domains. We do that by resorting to MultiWOZ (Eric et al., 2019), a recently published data set that contains both single- and multi-domain stories.
 
 ## Deliverables.
 The deliverables for our project are as follows:
@@ -71,3 +71,10 @@ cd rasa-x-deployment
 
 
 ## 5: Restaurant bot Google Assistant deployment.
+
+
+## References
+* Bocklisch, T., Faulkner, J., Pawlowski, N., & Nichol, A. (2017). Rasa: Open source language understanding and dialogue management. arXiv preprint arXiv:1712.05181.
+
+* Eric, M., Goel, R., Paul, S., Sethi, A., Agarwal, S., Gao, S., & Hakkani-Tur, D. (2019). Multiwoz 2.1: Multi-domain dialogue state corrections and state tracking baselines. arXiv preprint arXiv:1907.01669.
+
